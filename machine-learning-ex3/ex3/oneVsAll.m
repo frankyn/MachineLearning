@@ -50,24 +50,17 @@ X = [ones(m, 1) X];
 %
 
 
+% Initialize initial_theta to all zeros.
+initial_theta = zeros(n+1,1);
 
 % Prepare for fmincg
-initial_theta = zeros(n+1,1);
 options = optimset('GradObj', 'on', 'MaxIter', 50);
 
 % Do a logistic regression for each Row
 for c = 1:num_labels
-	
 	%Compute logistic regression
-	theta(c,:) = fmincg (@(t)(lrCostFunction(t, X, (y==c),lambda)), ...
+	all_theta(c,:) = fmincg (@(t)(lrCostFunction(t, X, (y==c),lambda)), ...
 	 	 initial_theta, options);
-
-
-
-
-
-
-
 
 
 

@@ -30,8 +30,9 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
+% theta = R^(kx(N+1))
+% X = R^(mx(N+1))
+[noth, p] = max(X*all_theta', [], 2);
 
 
 
