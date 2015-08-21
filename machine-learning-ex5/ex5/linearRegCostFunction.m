@@ -30,7 +30,7 @@ J = computed_error + regularization;
 size(X)
 size(theta)
 size(y)
-grad = 1/m*sum((X*theta-y)'*X);
+grad = 1/m*((X*theta)-y)'*X);
 grad = sum(lambda/m*theta(2:end));
 
 
