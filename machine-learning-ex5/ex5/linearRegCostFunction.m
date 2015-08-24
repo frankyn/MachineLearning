@@ -22,16 +22,15 @@ grad = zeros(size(theta));
 
 % Compute Cost function (Vectorized form)
 computed_error = 1/(2*m)*dot((X*theta-y),(X*theta-y)');
-regularization = lambda/(2*m) * dot(theta(2:end),theta(2:end)') % skip bias terms
+regularization = lambda/(2*m) * dot(theta(2:end),theta(2:end)'); % skip bias terms
 
 J = computed_error + regularization;
 
 % Compute the Gradient of the cost (Vectorized form)
-size(X)
-size(theta)
-size(y)
-grad = 1/m*((X*theta)-y)'*X);
-grad = sum(lambda/m*theta(2:end));
+regularized_grad = lambda/m*theta;
+regularized_grad(1) = 0;
+grad = 1/m*X'*((X*theta)-y)+regularized_grad;
+
 
 
 

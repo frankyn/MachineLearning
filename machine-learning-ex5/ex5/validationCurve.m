@@ -39,7 +39,22 @@ error_val = zeros(length(lambda_vec), 1);
 %
 %
 
+for i = 1:length(lambda_vec)
+	lambda = lambda_vec(i);
+	% Compute train / val errors when training linear 
+	% regression with regularization parameter lambda
+	% You should store the result in error_train(i)
+	% and error_val(i)
 
+	% Train theta using lambda
+	theta_train = trainLinearReg(X,y,lambda);
+
+	% Train RegCost using lambda
+	error_train(i) = linearRegCostFunction(X,y,theta_train,0);
+
+	% Validation RegCost using lambda
+	error_val(i)   = linearRegCostFunction(Xval,yval,theta_train,0);
+end
 
 
 
