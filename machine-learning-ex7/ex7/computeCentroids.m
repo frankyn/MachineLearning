@@ -26,9 +26,10 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
-
-
+% Create a matrix KxK big
+for i=1:K
+	centroids(i,:) = 1/sum(idx == i)*sum(X((idx == i),:));
+end
 
 
 

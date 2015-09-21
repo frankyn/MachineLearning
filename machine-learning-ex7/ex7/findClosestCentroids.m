@@ -21,9 +21,17 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+X_dim = size(X,1);
+for m=1:X_dim
+	dist_vector = [];
+	for i=1:K
+		dist_vector = [dist_vector norm(X(m,:)-centroids(i,:)).^2];
+	end
 
+	[val, index] = min(dist_vector);
 
-
+	idx(m) = index;
+end
 
 
 

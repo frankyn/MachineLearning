@@ -21,6 +21,17 @@ S = zeros(n);
 %
 
 
+% Compute the principle components
+
+% Sigma is the covariance
+% Sigma is an NxN matrix
+Sigma = 1/m * X'*X;
+
+% SVD
+[U,S,V] = svd(Sigma);
+
+
+
 
 
 
